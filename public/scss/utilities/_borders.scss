@@ -1,0 +1,126 @@
+// borders
+.b-none {
+	border: none;
+}
+
+.b-1px-gray-light {
+	border: 1px solid $color-gray;
+}
+
+.b-1px-gray-dark {
+	border: 1px solid $color-gray-dark;
+}
+
+// bottom
+.b-bot-none {
+	border-bottom: none;
+}
+
+.b-bot-1px-gray-light {
+	border-bottom: 1px solid $color-gray-light;
+}
+
+.b-bot-1px-gray-dark {
+	border-bottom: 1px solid $color-gray-darkest;
+}
+
+.b-bot-1px-white-shade {
+	border-bottom: 1px solid $color-white-shade;
+}
+
+.b-bot-2px-gray-light {
+	border-bottom: 2px solid $color-gray;
+}
+
+.b-bot-2px-gray-dark {
+	border-bottom: 2px solid $color-gray-darkest;
+}
+
+.b-bot-2px-green-dark {
+	border-bottom: 2px solid $color-green-dark;
+}
+
+// top
+.b-top-none {
+	border-top: none;
+}
+
+.b-top-1px-gray-light {
+	border-top: 1px solid $color-gray-light;
+}
+
+.b-top-1px-gray-dark {
+	border-top: 1px solid $color-gray-dark;
+}
+
+.b-top-1px-white-shade {
+	border-top: 1px solid $color-white-shade;
+}
+
+
+// left
+.b-left-none {
+	border-left: none;
+}
+
+
+// right
+.b-right-none {
+	border-right: none;
+}
+
+.b-right-1px-gray-light {
+	border-right: 1px solid $color-gray;
+}
+
+.b-right-1px-gray-dark {
+	border-right: 1px solid $color-gray-darkest;
+}
+
+.b-right-1px-white-shade {
+	border-right: 1px solid $color-white-shade;
+}
+
+.b-right-2px-gray-light {
+	border-right: 2px solid $color-gray;
+}
+
+.b-right-2px-gray-dark {
+	border-right: 2px solid $color-gray-darkest;
+}
+
+.b-right-2px-green-dark {
+	border-right: 2px solid $color-green-dark;
+}
+
+// border radius
+.brad {
+	border-radius: $border-radius;
+}
+
+.brad-full {
+	border-radius: 50%;
+}
+
+.brad-small {
+	border-radius: $border-radius-small;
+}
+
+.brad-bottom {
+	border-bottom-right-radius: $border-radius;
+	border-bottom-left-radius:  $border-radius;
+}
+
+.brad-tr {
+	border-top-right-radius: $border-radius;
+}
+
+.brad-left {
+	border-top-left-radius:    $border-radius;
+	border-bottom-left-radius: $border-radius;
+}
+
+.brad-right {
+	border-top-right-radius:    $border-radius;
+	border-bottom-right-radius: $border-radius;
+}

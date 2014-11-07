@@ -1,0 +1,46 @@
+.bulb {
+	border-radius: 50px;
+}
+
+.circle-12px {
+	border-radius: 50%;
+	width: 14px;
+	display: inline-block;
+	line-height: 14px;
+}
+
+.circle-50-icon {
+	padding: 8px 10px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+// circle
+// e.g. chat availability indicators
+@mixin circle($size) {
+	display: inline-block;
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+}
+
+.circle-green {
+	@include circle(12px);
+	background: $color-green-dark;
+}
+
+.circle-yellow {
+	@include circle(12px);
+	background: $color-yellow;
+}
+
+.circle-gray {
+	@include circle(12px);
+	background: $color-gray-alt;
+}
+
+.circle-red {
+	@include circle(12px);
+	background: $color-red;
+}
+

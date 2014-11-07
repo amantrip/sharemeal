@@ -1,0 +1,68 @@
+.btn {
+	border-radius: $border-radius-small;
+	border: none;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	@include transition(background, .4s);
+}
+
+.btn-no-bg {
+	background: none;
+
+	&:hover {
+		background: none;
+	}
+}
+
+.btn-bordered {
+	border: 1px solid $color-gray-alt;
+	background: none;
+}
+
+.btn-primary {
+	background: $color-blue-light;
+
+	&:hover {
+		background: tint($color-blue-light, 15%);
+	}
+}
+
+.btn-alt {
+	background: $color-blue;
+}
+
+.btn-gray {
+	background: $color-gray-light;
+	color: shade($color-gray-light, 25%);
+
+	&:hover {
+		background: shade($color-gray-light, 10%)
+	}
+}
+
+.btn-text-square {
+	line-height: 30px;
+	width: 30px;
+	padding: 0;
+}
+
+.btn-tiny {
+	padding: 0px 5px;
+}
+
+.btn-circle {
+	background: none;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 50%;
+	padding: 2px 0 0 0;
+	width: 26px;
+	color: $color-gray-alt;
+	border-color: $color-gray;
+
+	&:hover {
+		border-color: $color-blue;
+		color: $color-blue;
+	}
+}

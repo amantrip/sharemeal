@@ -1,0 +1,5 @@
+// override bootstrap sstyling
+.form-control,
+.form-control:focus {
+	@include box-shadow(none);
+}

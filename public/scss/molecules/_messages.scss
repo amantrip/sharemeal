@@ -1,0 +1,309 @@
+.messages-list {
+
+	.message {
+		text-decoration: none;
+		color: rgba($color-gray-dark, .6);
+		font-size: em(18);
+		padding: 20px 30px;
+		border-top: 1px solid $color-white-shade;
+
+		&:hover {
+			color: $color-gray-dark;
+		}
+	}
+
+	.message.message-new {
+		background: $color-white-shade;
+		color: $color-gray-dark;
+	}
+
+}
+
+// automatically add some idicator to currently chosen
+// sort order
+.sort-buttons {
+
+	&.pull-right {
+		float: none !important;
+		text-align: center;
+		padding-bottom: 5px;
+		margin-top: 30px;
+		@media(min-width: 400px) {
+			float: right !important;
+			margin-top: 0;
+
+		}
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: $color-gray-alt;
+		@include transition(all .4s);
+	}
+
+	.active {
+		position: relative;
+		color: $color-gray-alt;
+	}
+
+	& .active:after {
+		content: "";
+		width: 100%;
+		position: absolute;
+		background: $color-blue;
+		height: 1px;
+		top: 44px;
+		left: 0;
+	}
+}
+
+
+.mail-nav {
+	@media(max-width: $bp-baby-bear) {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: center;
+		margin-right: 0;
+		padding: 10px 0;
+		border-top: 1px solid $color-gray-light;
+		border-bottom: 1px solid $color-gray-light;
+		margin: 30px 0;
+	}
+}
+
+.search-box {
+	width: 150px;
+	@media(min-width: 400px) {
+		width: auto;
+	}
+}
+
+/*
+<li>
+	<a href="#" class="p-lr-30">
+		<img src="http://lorempixel.com/26/26/people/1" alt="" class="img-circle">
+		<span class="author">John Doe</span>
+		<span class="subject">Lorem ipsum dolor sir amet non omnis moriar.</span>
+		<span class="date">23 minutes ago</span>
+	</a>
+</li>
+*/
+.messages a {
+	display: block;
+	color: $color-gray-alt;
+	font-size: 15px;
+	@include clearfix;
+	@include transition(border .4s);
+
+	&.active {
+		padding-left: 7px;
+		border-left: 3px solid $color-blue-light;
+
+		@media(min-width: $bp-baby-bear) {
+			padding-left: 27px;
+		}
+	}
+
+	&:hover,
+	&.active {
+		background: $color-white-shade;
+	}
+
+	img {
+		vertical-align: bottom;
+	}
+
+	.avatar,
+	.author,
+	.subject,
+	.date {
+		display: inline-block;
+		float: left;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		line-height: 28px;
+	}
+
+	.avatar {
+		width: 12%;
+
+		img {
+			 max-width: 100%;
+		}
+
+		@media(min-width: $bp-baby-bear) {
+			width: 5%;
+		}
+	}
+
+	.author {
+		width: 15%;
+		color: $color-gray-dark;
+	}
+
+	.subject {
+		width: 65%;
+
+		@media(min-width: $bp-baby-bear) {
+			width: 60%;
+		}
+	}
+
+	.date {
+		width: 20%;
+		text-align: right;
+
+		@media(min-width: $bp-baby-bear) {
+			padding-right: 10px;
+		}
+	}
+	
+}
+
+// sidebar
+.compose-btn {
+	margin: 12px 0 11px;
+}
+
+
+// CHAT
+.chat-toggle {
+	position: relative;
+	display: block;
+
+	& > a:hover, &.open > a { text-decoration: none; }
+	& > a:focus, &.open > a {	outline: none; }
+
+	.dropdown-menu {
+		width: 100%;
+		border-radius: 0;
+		margin-top: 19px;
+		border-color: $color-gray;
+		box-shadow: none;
+	}
+
+}
+
+.chat-avatar {
+	margin-bottom: 5px;
+
+	&.available {
+		box-shadow: 0 0 0 2px $color-white,
+							0 0 0 4px $color-green-dark;
+	}
+
+	&.busy {
+		box-shadow: 0 0 0 2px $color-white,
+							0 0 0 4px $color-yellow;
+	}
+
+	&.signedoff {
+		box-shadow: 0 0 0 2px $color-white,
+							0 0 0 4px $color-gray-alt;
+	}
+
+}
+
+.people a {
+	color: $color-gray-dark;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.chat-search {
+	margin-top: 16px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+
+// messanger
+.messenger {
+	width: 274px;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 99999999;
+	@include box-shadow(0 0 3px rgba(0,0,0,.3));
+}
+
+// chat messsages
+.chat-header {
+	padding: 6px 10px;
+}
+
+.chat-toggle {
+	padding-top: 2px;
+	color: rgba($color-white, .8);
+	&:hover {
+		color: $color-white;
+	}
+}
+
+.chat-messages {
+	height: 250px;
+	overflow:hidden;
+	overflow-y: scroll;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+
+.messenger-body {
+	display: none;
+
+	&.open {
+		display:block;
+	}
+}
+.chat-messages li {
+
+	margin: 15px 10px;
+	display: block;
+
+	img {
+		float: left;
+	}
+
+	&.right img {
+		float: right;
+	}
+
+	.message {
+		display: block;
+		background: tint($color-gray-light, 50%);
+		vertical-align: top;
+		margin-left: 32px;
+		padding: 5px 10px;
+		border-radius: $border-radius;
+		position: relative;
+
+		&:before {
+			content: "";
+			@include triangle(12px, tint($color-gray-light, 50%), left);
+			position: absolute;
+			left: -12px;
+			top: 4px;
+		}
+	}
+
+	&.right .message {
+		margin-left: 0;
+		margin-right: 32px;
+		background: tint($color-blue-light, 70%);
+
+		&:before {
+			content: "";
+			@include triangle(12px, tint($color-blue-light, 70%), right);
+			left: 100%;
+		}
+	}
+
+}
+
+.chat-footer {
+	border-top: 1px solid $color-gray-light;
+}

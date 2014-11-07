@@ -1,0 +1,98 @@
+.checkmarked {
+	list-style: none;
+	padding-left: 0;
+
+	li {
+		padding: 15px 0;
+		font-size: em(18);
+		font-weight: 100;
+	}
+
+	li:before {
+		content: "\2713";
+		font-size: em(16);
+		color: $color-green-dark;
+		margin-right: 10px;
+	}
+}
+
+// lists helpers
+.unstyled {
+	list-style: none;
+	padding: 0;
+}
+
+.inline li {
+	display: inline-block;
+}
+
+.tasks-wrapper {
+	max-height: 204px;
+	overflow: auto;
+}
+
+.list-editable li {
+	border-bottom: 1px solid shade($color-white-shade, 2%);
+	padding: 15px;
+	position: relative;
+	height: 51px;
+
+	.icheckbox_flat-blue {
+		float: left;
+	}
+
+	.body {
+		text-overflow: ellipsis;
+		display: block;
+		width: calc(100% - 80px);
+		white-space: nowrap;
+		overflow: hidden;
+		float: left;
+	}
+
+	&:hover {
+		background: $color-white-shade;
+		border-left: 3px solid $color-blue;
+		padding-left: 12px;
+
+		.remove-box {
+			opacity: 1;
+		}
+	}
+
+	.icheckbox_flat-blue {
+		margin-right: 10px;
+	}
+
+	.remove-box {
+		background: $color-blue;
+		padding: 16px 7px 10px 16px;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		opacity: 0;
+		@include transition(opacity .4s);
+
+		.iconmelon,
+		.im {
+			fill: $color-white;
+			width: 20px;
+			height: 20px;
+		}
+
+		&:before {
+			content: "";
+			@include triangle(8px, $color-blue, left);
+			position: absolute;
+			left: -8px;
+			top: 50%;
+			margin-top: -4px;
+		}
+	}
+
+}
+
+.sortable-placeholder {
+	height: 51px;
+}

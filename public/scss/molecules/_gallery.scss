@@ -1,0 +1,87 @@
+.mosaicflow__column {
+	float:left;
+}
+
+.mosaicflow__item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  svg {
+  	position: absolute;
+  	height: 100%;
+  	width: 101%;
+  	top: 0;
+  	left: 0;
+  	fill: rgba($color-blue, .95);
+  }
+
+  img {
+		opacity: .7;
+		@include transition(opacity, .3s);
+		display:block;
+	  width:100%;
+	  height:auto;
+	}
+
+  figcaption {
+  	position: absolute;
+  	top: 80px;
+  	text-align: center;
+  	width: 100%;
+  	color: $color-white;
+  	padding: 0 15px;
+  	@include transition(all, .3s);
+
+  	h3 {
+  		text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			margin-top: 0;
+			letter-spacing: 2px;
+  	}
+
+  	p {
+  		color: rgba($color-white, .8);
+
+  		@include transition(opacity, .3s);
+  	}
+  }
+
+  .item__buttons {
+  	width: 100px;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	margin-left: -50px;
+  	margin-top: -20px;
+
+  	.btn {
+  		border-color: $color-white;
+  		border-width: 2px;
+  		border-radius: 0;
+  		color: $color-white;
+  		@include transition(opacity .3s, transform .3s);
+  		opacity: 0;
+	    @include transform(scale(0.25));
+  	}
+  }
+
+}
+
+.mosaicflow__item:hover .item__buttons .btn {
+	opacity: 1;
+  @include transform(scale(1));
+}
+
+.mosaicflow__item:hover img {
+	opacity: 1;
+}
+
+.mosaicflow__item:hover figcaption {
+	top: 11px;
+}
+
+.mosaicflow__item:hover figcaption > p {
+	opacity: 0;
+}

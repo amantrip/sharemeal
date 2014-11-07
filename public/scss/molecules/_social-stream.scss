@@ -1,0 +1,69 @@
+.social-feed {
+	overflow: auto;
+	max-height: 204px;
+	border-bottom: 1px solid shade($color-white-shade, 4%);
+	margin-bottom: 30px;
+}
+
+.social-feed > ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.social-feed li {
+	padding: 10px 0 10px 40px; 
+	// border-bottom: 1px solid shade($color-white-shade, 4%);
+
+	&:nth-child(odd) {
+		background: $color-white-shade;
+	}
+}
+
+[class^="lifestream-"] {
+	position: relative;
+
+	&:before {
+		content: "";
+		font-family: "foundation-icons";
+	  font-style: normal;
+	  font-weight: normal;
+	  font-variant: normal;
+	  text-transform: none;
+	  line-height: 1;
+	  -webkit-font-smoothing: antialiased;
+	  display: inline-block;
+	  text-decoration: inherit;
+	  position: absolute;
+	  left: 12px;
+	  top: 10px;
+	  font-size: em(24);
+	}
+}
+
+.lifestream-twitter:before {
+	content: "\f1e4";
+  color: $color-twitter;
+}
+
+.lifestream-github:before {
+	content: "\f1c9";
+}
+
+.lifestream-stackoverflow:before {
+	content: "\f1df";
+}
+
+.lifestream-rss:before {
+	content: "\f1aa";
+	color: $color-rss;
+}
+
+.lifestream-blogger:before {
+	content: "\f1bb";
+	color: $color-blogger;
+}
+
+.lifestream-dribbble:before {
+	content: "\f1c0";
+	color: $color-dribbble;
+}

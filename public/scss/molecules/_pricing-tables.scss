@@ -1,0 +1,32 @@
+.pricing-table {
+	margin-top: 30px;
+	position: relative;
+	border-bottom: 2px solid $color-gray;
+	border-right: 1px solid $color-gray;
+
+	.table-body {
+		min-height: 320px;
+	}
+
+	.table-top-wrapper {
+		height: 5px;
+	}
+
+	.table-top {
+		padding: 8px 10px;
+		position: absolute;
+		border-radius: 50%;
+		display: inline-block;
+		text-align: center;
+		top: -30px;
+		left: 50%;
+		margin-left: -25px;
+		@include box-shadow(1px 1px 1px rgba(0,0,0,.2));
+
+		.iconmelon {
+			fill: #FFF;
+			height: 29px;
+		}
+	}
+
+}

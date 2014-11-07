@@ -1,0 +1,29 @@
+.d-block {
+	display: block;
+}
+
+.i-block {
+	display: inline-block;
+}
+
+.opacity-0 {
+	opacity: 0;
+	visibility: hidden;
+	@include transition(opacity .4s);
+}
+
+.opacity-1 {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+// mark content as editable
+.editable {
+	border-bottom: 1px dashed rgba($color-gray-dark, .4);
+	padding-bottom: 3px;
+
+	&:focus {
+		outline: none;
+	}
+}

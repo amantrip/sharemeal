@@ -1,0 +1,75 @@
+.hover-white-shade-bg {
+	@include transition(background, .4s);
+}
+
+.hover-white-shade-bg:hover {
+	background: $color-white-shade;
+}
+
+.hover-gray-bg {
+	@include transition(background, .4s);
+}
+
+.hover-gray-bg:hover {
+	background: $color-gray;
+}
+
+.hover-gray-dark {
+	@include transition(color, .4s);
+}
+
+.hover-gray-dark:hover {
+	color: $color-gray-dark;
+}
+
+.hover-no-underline:hover {
+	text-decoration: none;
+}
+
+.hover-white-opacity-text {
+	color: rgba($color-white, .6);
+	@include transition(color .4s);
+}
+.hover-white-opacity-text:hover {
+	color: $color-white;
+}
+
+.hover-opacity-change {
+	opacity: .6;
+	@include transition(opacity .4s);
+}
+.hover-opacity-change:hover {
+	opacity: 1;
+}
+
+// image button
+.center-on-hover {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	@include transition(opacity .4s);
+
+	img {
+		max-width: 100%;
+	}
+
+	.centered-element {
+		position: absolute;
+		top: 50%;
+		margin-top: -16px;
+		display: block;
+		width: 80px;
+		left: 50%;
+		margin-left: -40px;
+		opacity: 0;
+		@include transition(opacity .4s);
+	}
+
+	&:hover {
+		opacity: .8;
+	}
+
+	&:hover .centered-element {
+		opacity: 1;
+	}
+}

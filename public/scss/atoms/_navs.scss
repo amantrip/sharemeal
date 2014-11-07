@@ -1,0 +1,35 @@
+// NAV STACKED
+.nav-stacked > li,
+.nav-stacked > li + li {
+	margin-top: 0;
+}
+
+.nav-stacked > li:last-of-type a {
+	border-bottom: none;
+}
+
+.nav-stacked > li > a {
+	padding: 12px 30px 13px;
+	margin-top: 0;
+	border-bottom: 1px solid $color-gray-light;
+	color: $color-gray-alt;
+	font-size: em(18);
+	border-radius: 0;
+	@include transition(color .4s);
+
+	&:hover {
+		color: $color-gray-dark;
+		background: $color-white-shade;
+	}
+}
+
+.nav-stacked > li.active > a {
+	background: $color-white-shade;
+	color: $color-gray-dark;
+	border-left: 3px solid $color-blue-light;
+	padding-left: 27px;
+	&:hover {
+		background: $color-white-shade;
+		color: $color-gray-dark;
+	}
+}

@@ -1,0 +1,80 @@
+// gray
+.bg-gray-light {
+	background: $color-gray-light;
+}
+
+.bg-gray {
+	background: $color-gray;
+}
+
+.bg-gray-dark {
+	background: $color-gray-dark;
+}
+
+.bg-gray-dark-shade {
+	background: shade($color-gray-dark, 10%);
+}
+
+.bg-gray-darkest {
+	background: $color-gray-darkest;
+}
+
+.bg-gray-alt {
+	background: $color-gray-alt;
+}
+
+// white
+.bg-white {
+	background: $color-white;
+}
+
+.bg-white-shade {
+	background: $color-white-shade;
+}
+
+// blue
+.bg-blue {
+	background: $color-blue;
+}
+
+.bg-blue-light {
+	background: $color-blue-light;
+}
+
+// green
+.bg-green {
+	background: $color-green;
+}
+
+.bg-green-dark {
+	background: $color-green-dark;
+}
+
+// orange
+.bg-orange {
+	background: $color-orange;
+}
+
+// gradients
+.bg-g-ln-gray {
+	@include linear-gradient(to top, #2B2C31, #383C45);
+}
+
+.bg-color-gradient {
+	background: #092756;
+	@include background(
+		radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), 
+	  linear-gradient(top,  rgba($color-blue, .25) 0%, rgba($color-blue,.4) 100%),
+	  linear-gradient(-45deg,  $color-gray-dark 0%, #092756 100%)
+	)
+}
+
+// blurred backgrounds
+$num_of_backgrounds: 20; // num of backgrounds
+
+@for $i from 1 to $num_of_backgrounds {
+	.bg-blurred-#{$i} {
+		background: url(../backgrounds/wg_blurred_backgrounds_#{$i}.jpg);
+		background-size: cover;
+	}
+}

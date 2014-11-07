@@ -1,0 +1,137 @@
+.sidebar {
+	position: fixed;
+	height: 100%;
+	width: $sidebar-width-small;
+	
+	@media(min-width: $bp-papa-bear) {
+		width: $sidebar-width;
+	}
+
+	header .img-circle {
+		vertical-align: middle;
+		margin-top: -5px;
+		margin-right: 5px;
+	}
+
+	.caret {
+		border-top-color: rgba($color-white, .6);
+	}
+
+	hr {
+		border-color: tint($color-gray-dark, 5%);
+	}
+
+	.nav > li.active > a {
+		padding-left: 28px;
+		background: tint($color-gray-dark, 2%);
+		border-left: 2px solid $color-blue-light;
+		color: tint($color-gray-dark, 85%);
+	}
+
+	.nav > li > a {
+		color: tint($color-gray-dark, 35%);
+		text-transform: uppercase;
+		@include transition(background .4s, color .4s);
+		padding: 8px 30px;
+
+		@media(min-width: $bp-baby-bear) {
+			padding: 15px 30px;
+		}
+	}
+
+	.nav > li > a:hover,
+	.nav > li.open > a {
+		border-left: 2px solid $color-blue-light;
+		background: tint($color-gray-dark, 2%);
+		padding-left: 28px;
+		color: tint($color-gray-dark, 85%);
+	}
+
+	.nav > li > .dropdown-menu {
+		position: relative;
+		width: 100%;
+		border-radius: 0;
+		border: none;
+		@include box-shadow(none);
+		padding: 0;
+		margin: 0;
+		float: none;
+		overflow: hidden;
+		display: block;
+		max-height: 0;
+		@include transition(all .4s);
+
+		& > li > a {
+			background: shade($color-gray-dark, 8%);
+			color: tint($color-gray-dark, 35%);
+			padding: 15px 50px;
+			text-align: left;
+			@include transition(background .4s, color .4s);
+		}
+
+		& > li > a:hover {
+			background: tint($color-gray-dark, 6%);
+			color: tint($color-gray-dark, 85%);
+		}
+	}
+
+	.nav > li.open > .dropdown-menu {
+		max-height: 1000px;
+	}
+
+	.search {
+		opacity: .6;
+		padding: 12px 7px 11px;
+
+		& input {
+			width: 165px;
+			@media(min-width: $bp-papa-bear) {
+				width: auto;
+			}
+		}
+	}
+
+	.search i {
+		margin-right: 4px;
+	}
+
+	.sidebar-chart {
+		@include transform(scale(.75));
+		margin-top: 0px;
+		@media(min-width: 400px) {
+			margin-top: 30px;
+			@include transform(scale(1));
+		}
+	}
+
+}
+
+
+// dropdown for avatar
+.dropdown-sidebar-avatar {
+    border-radius: 0;
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include transition(max-height .4s ease-in-out);
+    background: shade($color-gray-dark, 20%);
+
+    li > a {
+        padding: 5px 0;
+        display: block;
+        color: tint($color-gray-dark, 35%);
+    }
+
+    li > a:hover {
+        text-decoration: none;
+        background: tint($color-gray-dark, 1%);
+        color: tint($color-gray-dark, 85%);
+    }
+
+    &.open {
+        max-height: 300px;
+    }
+}

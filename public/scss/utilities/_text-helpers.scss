@@ -1,0 +1,59 @@
+// text colors
+.text-white {
+	color: $color-white;
+}
+
+.text-blue {
+	color: $color-blue;
+}
+
+.text-gray-light {
+	color: $color-gray-light;
+}
+
+.text-gray {
+	color: $color-gray;
+}
+
+.text-gray-dark {
+	color: $color-gray-dark;
+}
+
+.text-gray-alt {
+	color: $color-gray-alt;
+}
+
+.text-orange {
+	color: $color-orange;
+}
+
+// font sizes
+.text-small {
+	font-size: em(12);
+}
+
+.text-large {
+	font-size: em(26);
+}
+
+.text-huge {
+	font-size: em(48);
+}
+
+.font-w-100 {
+	font-weight: 100;
+}
+
+.text-bold {
+	font-weight: 700;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+// other helpers
+.align-with-button {
+	vertical-align: top;
+	line-height: 30px;
+}

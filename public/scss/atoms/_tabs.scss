@@ -1,0 +1,37 @@
+.nav-tabs {
+	border-color: $color-gray;
+
+	li {
+		width: 100%;
+		display: block;
+
+		@media(min-width: $bp-baby-bear) {
+			width: auto;
+			display: inline-block;
+		}
+	}
+}
+
+.nav-tabs li a {
+	border-color: $color-gray;
+	background: $color-white-shade;
+	padding: 30px 30px 20px;
+	color: rgba($color-gray-dark, .4);
+	@include transition(color, .4s);
+
+	&:hover {
+		color: rgba($color-gray-dark, .8);
+		background: $color-white-shade;
+		border-color: $color-gray;
+	}
+}
+
+.nav-tabs li.active a {
+	border-color: $color-gray;
+	border-bottom-color: $color-white;
+	color: $color-blue;
+
+	&:hover {
+		color: $color-blue;
+	}
+}

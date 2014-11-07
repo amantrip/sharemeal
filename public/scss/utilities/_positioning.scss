@@ -1,0 +1,43 @@
+
+.pos-rel {
+	position: relative;
+}
+
+.block-absolute-center {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.top-right-corner {
+	position: absolute;
+	top: 13px;
+	right: 30px;
+
+	@media(min-width: $bp-mama-bear) {
+		top: 7px;
+		right: 30px;
+	}
+	
+}
+
+.top-left-corner {
+	position: absolute;
+	top: 13px;
+
+	@media(min-width: $bp-mama-bear) {
+		top: 0;
+	}
+}
+
+.top-left-abs {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.icon-counter {
+	position: absolute;
+	top: -7px;
+	left: 7px;
+}

@@ -1,0 +1,99 @@
+// import project fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+
+// Import Bootstrap 
+// (let it go first, since we override some mixins with bourbon)
+@import "bootstrap/bootstrap";
+
+
+// bourbon
+// visit: http://bourbon.io
+@import "bourbon/bourbon";
+
+
+
+// import project base
+// colors, measurements etc.
+@import "base";
+
+
+// This project follows atomic design princeples for your ease of use
+// Read more about atomic design here:
+// http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/
+
+/* UTILITIES
+	 Set of utilities that make up the basic plumbing of the website.
+	 e.g. backgrounds, borders, base-spacing
+*/
+@import "utilities/other";
+@import "utilities/base-spacing";
+@import "utilities/positioning";
+@import "utilities/backgrounds";
+@import "utilities/inputs";
+@import "utilities/forms";
+@import "utilities/hover-effects";
+@import "utilities/borders";
+@import "utilities/list-helpers";
+@import "utilities/text-helpers";
+@import "utilities/shapes";
+
+
+
+/* QUARKS
+	 Basic building blocks of the website, including paragraphs, 
+	 tables, images and links	 This sectin provides styling for 
+	 base html tags (not for class-related styles)
+*/
+@import "quarks/inputs";
+@import "quarks/links";
+
+
+
+/* ATOMS
+   Basic project classes universal across all the pages.
+   This section also includes Bootstrap overrides.
+*/
+@import "atoms/icons";
+@import "atoms/tabs";
+@import "atoms/navs";
+@import "atoms/tables";
+@import "atoms/buttons";
+@import "atoms/text-emphasis";
+@import "atoms/inputs";
+@import "atoms/labels";
+@import "atoms/preloader";
+@import "atoms/alerts";
+@import "atoms/progress-bars";
+@import "atoms/select-boxes";
+@import "atoms/sparklines";
+@import "atoms/navbars";
+
+
+/* MOLECULES
+   Larger chunks of markup that are most likely 
+   unique and will not be used multiple times on one page.
+   e.g. sidebar, widget related styles etc.
+*/
+@import "molecules/sidebar";
+@import "molecules/main-content";
+@import "molecules/calendar";
+@import "molecules/social-stream";
+@import "molecules/charts";
+@import "molecules/pushy";
+@import "molecules/messages";
+@import "molecules/pricing-tables";
+@import "molecules/login";
+@import "molecules/signup";
+@import "molecules/image-uploader";
+@import "molecules/gallery";
+
+
+
+// set project font
+body {
+	font-family: "Open Sans";
+	padding-top: 51px;
+	-webkit-overflow-scrolling: touch;
+}
+

@@ -1,0 +1,40 @@
+.main-content {
+	position: relative;
+	@include transition(opacity .4s);
+	opacity: 0;
+
+	overflow-y: scroll;
+	height: 100%;
+
+	&.active {
+		opacity: 1;
+	}
+
+	// pushy support
+	@media(min-width: $bp-mama-bear) {
+		margin-left: $sidebar-width-small;
+	}
+	
+	@media(min-width: $bp-papa-bear) {
+		margin-left: $sidebar-width;
+	}
+}
+
+
+.over-text {
+	width: 100%;
+
+	input {
+		border: 1px solid shade($color-white-shade, 4%);
+		border-radius: $border-radius-small;
+		line-height: 27px;
+		width: calc(100% - 40px);
+		margin-top: -1px;
+		padding-left: 10px;
+
+		&:focus {
+			outline: none;
+			border: 1px solid $color-blue;
+		}
+	}
+}

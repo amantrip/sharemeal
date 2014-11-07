@@ -1,0 +1,17 @@
+.label {
+	font-size: em(15);
+	line-height: 26px;
+	font-weight: 300;
+}
+
+.label-warning {
+	background-color: $color-orange; 
+}
+
+.label-info {
+	background-color: $color-blue;
+}
+
+.label-success {
+	background-color: $color-green-dark;
+}

@@ -1,0 +1,25 @@
+.alert {
+	border-radius: 0;
+	color: $color-white;
+	border: none;
+
+	.close {
+		color: $color-gray-dark;
+	}
+}
+
+.alert-success {
+	background: $color-green-dark;
+}
+
+.alert-info {
+	background: $color-blue;
+}
+
+.alert-warning {
+	background: $color-orange;
+}
+
+.alert-danger {
+	background: $color-red;
+}

@@ -1,0 +1,47 @@
+.morris-hover {
+  position: absolute;
+  z-index: 1000;
+}
+
+.morris-hover.morris-default-style {
+  border-radius: 10px;
+  color: #666;
+  background: rgba($color-white, 0.8);
+  border: solid 2px rgba($color-blue, 0.8);
+  font-size: 12px;
+  text-align: center;
+  padding: 6px;
+}
+
+.morris-hover.morris-default-style .morris-hover-row-label {
+  font-weight: 700;
+  margin: .25em 0;
+}
+
+.morris-hover.morris-default-style .morris-hover-point {
+  white-space: nowrap;
+  margin: .1em 0;
+}
+
+.chart {
+  position: relative;
+  text-align: center;
+  min-height: 145px;
+}
+
+.percentage {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  line-height: 30px;
+  margin-top: -18px;
+  font-size: em(28);
+}
+
+.chart .label {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width:100%;
+  font-size: em(16);
+}

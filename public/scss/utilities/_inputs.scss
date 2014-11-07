@@ -1,0 +1,56 @@
+.input-invisible {
+	border: none;
+	background: transparent;
+	color: $color-white;
+
+	@include placeholder {
+    color: $color-gray-alt;
+  }
+
+  &:focus {
+  	outline: none;
+  	background: $color-gray-dark;
+  }
+}
+
+.input-light {
+  border: 1px solid $color-gray-light;
+  @include transition(border .4s);
+
+  &:focus {
+    outline: none;
+    border-color: shade($color-gray-light, 10%);
+  }
+}
+
+.input-large {
+  padding: 5px 10px;
+  border-width: 2px;
+}
+
+// glass input for login/signup
+.input-glass,
+.form-control.input-glass {
+  padding: 20px 10px;
+  line-height: 20px;
+  background: rgba(0,0,0,.3);
+  border: none;
+  outline: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  color: rgba($color-white, .9);
+  @include box-shadow(
+      inset 0 -5px 45px rgba(100,100,100,0.2), 
+      0 1px 1px rgba(255,255,255,0.2)
+    );
+  @include transition(box-shadow .4s ease);
+
+  &:focus { 
+    @include box-shadow(
+        inset 0 -5px 45px rgba(150,150,150,0.2), 
+        0 1px 1px rgba(255,255,255,0.2)
+      );
+    outline: none;
+  }
+}
+

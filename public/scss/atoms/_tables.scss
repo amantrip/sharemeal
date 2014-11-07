@@ -1,0 +1,49 @@
+.table>thead>tr>td, 
+.table>tbody>tr>td, 
+.table>tfoot>tr>td, 
+.table>thead>tr>th, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>th {
+	&.active {
+		background: rgba($color-blue, .2);
+	}
+
+	&.success {
+		background: rgba($color-green-dark, .2);
+	}
+
+	&.warning {
+		background: rgba($color-yellow, .2);
+	}
+
+	&.danger {
+		background: rgba($color-red, .2);
+	}
+}
+
+.table>thead>tr, 
+.table>tbody>tr, 
+.table>tfoot>tr, 
+.table>thead>tr, 
+.table>tbody>tr, 
+.table>tfoot>tr {
+	&.active > td,
+	&.active > th {
+		background: rgba($color-blue, .2);
+	}
+
+	&.success > td,
+	&.success > th {
+		background: rgba($color-green-dark, .2);
+	}
+
+	&.warning > td,
+	&.warning > th {
+		background: rgba($color-yellow, .2);
+	}
+
+	&.danger > td,
+	&.danger > th {
+		background: rgba($color-red, .2);
+	}
+}
