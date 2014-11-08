@@ -44,7 +44,7 @@
       });
     }
     if ($('#dashboard-page').length > 0) {
-      $.notify("Welcome back John", 'info', {
+      $.notify("Welcome!", 'info', {
         autoHide: true,
         autoHideDelay: 5000,
         arrowShow: false

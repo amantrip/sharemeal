@@ -5,7 +5,7 @@
 @stop
 
 @section('styling')
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/index-override.css">
 @stop
 
 @section('content')
@@ -16,14 +16,11 @@
 
 				<!-- <img src="http://placehold.it/200x90"> -->
                 <!--<h2 class="text-white font-w-100">Share-a-Meal</h2>-->
+                <h2 class="text-white">Sorry!<br>Registration Failed!</h2>
+                <p class="text-white">The Email ID has already been used!<br> Please try again</p>
 			</div>
-			{{ Form:: open(['class' => 'form-horizontal']) }}
-			  <div class="form-group">
-			    {{ Form:: text('zipcode', null, ['class' => 'form-control center', 'placeholder' => 'ZipCode']) }}
-			  </div>
-			  {{ Form:: submit('Get Started', ['class' => 'btn btn-primary btn-block btn-lg']) }}
 
-
+            {{ link_to('/register', 'Try again', ['class' => 'btn btn-primary btn-block btn-lg']) }}
 		</div>
 @stop
 
