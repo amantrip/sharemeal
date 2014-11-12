@@ -33,14 +33,33 @@ Route::get('/welcome', 'HomeController@welcome');
 Route::get('/failed', 'HomeController@failed');
 Route::get('/inline', 'HomeController@inline');
 Route::get('/thankyou', 'HomeController@thankyou');
+Route::get('/404error', 'HomeController@error');
+Route::get('/matched', 'HomeController@matched');
 
-Route::get('/login', function(){
+
+App::missing(function($exception)
+{
+    // return Response::view('errors.missing', array(), 404);
+    return Redirect::to('404error');
+});
+
+/*Route::get('/mail',  function(){
+
+    Mail::send('emails.test', [], function($message){
+        $message->to('akhimantripragada@gmail.com')->subject('Test Mandrill Email');
+    });
+
+
+
+});*/
+
+/*Route::get('/login', function(){
 
     $user = Auth::user();
 
 
     return $user->email;
-})->before('auth');
+})->before('auth');*/
 
 
 
@@ -55,7 +74,7 @@ Route::get('/login', function(){
 /*Route::get('/api', function(){
 
 
-    $query = "search?location=10025&term=indian+food";
+    $query = "search?term=food&location=San+Francisco";
     #$query = "search?term=roti-roll-bombay-frankie-new-york";
 
     #return App::make('yelp')->search($query);

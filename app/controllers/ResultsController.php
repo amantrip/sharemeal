@@ -35,6 +35,8 @@ class ResultsController extends \BaseController {
         //return $query;
         $results =  Shareameal\Yelp\Yelp:: search($query);
 
+
+
         //Get relevant information and send to view
         $businesses_id = array_fetch($results['businesses'],'id');
         $businesses_name = array_fetch($results['businesses'],'name');
@@ -45,11 +47,16 @@ class ResultsController extends \BaseController {
 
         $waiting = [];
 
+
+
         for($j = 0; $j < count($businesses_id); $j++){
             $count = Scheduler::where('rid', '=', $businesses_id[$j])->count();
-            $sch = Scheduler::where('rid', '=', $businesses_id[$j])->first();
+
             if($count >= 1) {
-                $waiting[] = $sch;
+                $sch = Scheduler::where('rid', '=', $businesses_id[$j])->firstorFail();
+                //$waiting[] = $sch;
+
+                array_push($waiting, $sch);
                 // Remove this restaurant from the list
                 unset($businesses_id[$j]);
                 unset($businesses_name[$j]);
@@ -59,10 +66,11 @@ class ResultsController extends \BaseController {
                 $businesses_name = array_values($businesses_name);
                 $businesses_locations = array_values($businesses_locations);
                 $businesses_url = array_values($businesses_url);
+                $j--;
             }
+
         }
 
-        //return $query;
         return View::make('results.show', ['waiting' => $waiting, 'rest_id' => $businesses_id, 'rest_name' => $businesses_name, 'rest_locations' => $businesses_locations, 'rest_url' => $businesses_url]);
 
     }
@@ -79,8 +87,53 @@ class ResultsController extends \BaseController {
             $sch->delete();
         }
 
-        return "Notify Both users";
+        $user = Auth::user();
+        $matched_user = User::find($uid);
 
+        $sent = static::sendMail($user->id, $uid, $restaurant_id);
+
+        //return "Notify Both users";
+
+        return Redirect::to('/matched');
+
+    }
+
+    private static function sendMail($curr_uid, $matched_uid, $restaurant_id){
+        $user1 = User::find($curr_uid);
+        $user2 = User::find($matched_uid);
+
+        $email_data1 = array(
+            'recipient' => $user1->email,
+            'subject' => 'Congratulations! We found you a match!'
+        );
+        $view_data1 = [
+            'email' => $user2->email,
+            'gender' => $user2->gender,
+            'restaurant' => $restaurant_id
+        ];
+
+        Mail::send('emails.match', $view_data1, function($message) use ($email_data1) {
+            $message->to( $email_data1['recipient'] )
+                ->subject( $email_data1['subject'] );
+        });
+
+        $email_data2 = array(
+            'recipient' => $user2->email,
+            'subject' => 'Congratulations! We found you a match!'
+        );
+        $view_data2 = [
+            'email' => $user1->email,
+            'gender' => $user1->gender,
+            'restaurant' => $restaurant_id
+        ];
+
+        Mail::send('emails.match', $view_data2, function($message) use ($email_data2) {
+            $message->to( $email_data2['recipient'] )
+                ->subject( $email_data2['subject'] );
+        });
+
+
+        return true;
     }
 
     public function rest(){
@@ -104,7 +157,7 @@ class ResultsController extends \BaseController {
             }
        }
 
-       if($selected == 0){
+       if($selected == 0) {
            return Redirect::route('results.index');
        }
 
@@ -118,7 +171,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -129,7 +182,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -141,7 +194,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -153,7 +206,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -165,7 +218,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -177,7 +230,7 @@ class ResultsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 

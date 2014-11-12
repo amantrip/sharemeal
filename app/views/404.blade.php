@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-    <title>Welcome to Share a Meal</title>
+    <title>404 Error!</title>
 @stop
 
 @section('styling')
@@ -16,11 +16,11 @@
 
 				<!-- <img src="http://placehold.it/200x90"> -->
                 <!--<h2 class="text-white font-w-100">Share-a-Meal</h2>-->
-                <h2 class="text-white">Sorry!<br>Registration Failed!</h2>
-                <p class="text-white">The Email ID has already been used!<br> Please try again</p>
+                <h2 class="text-white">Sorry!<br>Page not Found</h2>
+                <p class="text-white">Please go back to <br> the home page!</p>
 			</div>
 
-            {{ link_to('/register', 'Try again', ['class' => 'btn btn-primary btn-block btn-lg']) }}
+            {{ link_to('/', 'Go back to Home Page', ['class' => 'btn btn-primary btn-block btn-lg']) }}
 		</div>
 @stop
 

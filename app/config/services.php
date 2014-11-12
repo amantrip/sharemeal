@@ -16,7 +16,7 @@ return [
 
 
 	'mandrill' => [
-		'secret' => ''
+		'secret' => 'UI7hI3OEZIPZmMyWlerFYg'
 	]
 
 

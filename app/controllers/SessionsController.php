@@ -30,7 +30,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -113,7 +113,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -125,7 +125,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -137,7 +137,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -149,7 +149,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 

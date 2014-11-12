@@ -30,6 +30,20 @@ class HomeController extends BaseController {
     }
 
     public function thankyou(){
+        if(!Auth::check()){
+            return Redirect::to('/');
+        }
         return View::make('thankyou');
+    }
+
+    public function error(){
+        return View::make('404');
+    }
+
+    public function matched(){
+        if(!Auth::check()){
+            return Redirect::to('/');
+        }
+        return View::make('matched');
     }
 }

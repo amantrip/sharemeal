@@ -13,13 +13,13 @@
 
     		<hr class="no-margin"><br><br><br>
 
-    		<ul class="unstyled nav">
-                <li><a href="" class="text-left">Simple 3 Step Process</a></li>
+    		<!--<ul class="unstyled nav">
+                <li>Simple 3 Step Process</li>
                 <li><a href="" class="text-left">1. Enter Zip Code</a></li>
                 <li><a href="" class="text-left">2. Select Cuisines</a></li>
                 <li><a href="" class="text-left">3. Choose Restaurants</a></li>
                 <li><a href="" class="text-left">Share-A-Meal!</a></li>
-            </ul>
+            </ul>-->
     	</div>
 @stop
 
@@ -31,7 +31,7 @@
             <div class="col-sm-10 ">
                 <div class="m-b-10">
 
-                    {{ Form:: text('zipcode', null, ['class' => 'input-large input-light brad', 'required']) }}
+                    {{ Form:: input('number','zipcode', null, ['class' => 'input-large input-light brad', 'required']) }}
                     {{ $errors->first('zipcode') }}
                 </div>
             </div>

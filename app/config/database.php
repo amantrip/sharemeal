@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'shareameal',
 			'username'  => 'homestead',
-			'password'  => 'secret',
+			'password'  => 'Secret11102014',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

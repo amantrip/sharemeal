@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-    <title>Welcome to Share a Meal</title>
+    <title>You have been matched!</title>
 @stop
 
 @section('styling')
@@ -16,11 +16,11 @@
 
 				<!-- <img src="http://placehold.it/200x90"> -->
                 <!--<h2 class="text-white font-w-100">Share-a-Meal</h2>-->
-                <h2 class="text-white">Sorry!<br>Registration Failed!</h2>
-                <p class="text-white">The Email ID has already been used!<br> Please try again</p>
+                <h2 class="text-white">Congratulations!</h2>
+                <p class="text-white">You have been matched! <br>Please check your email for details!</p>
 			</div>
 
-            {{ link_to('/register', 'Try again', ['class' => 'btn btn-primary btn-block btn-lg']) }}
+            {{ link_to('/logout', 'Logout', ['class' => 'btn btn-primary btn-block btn-lg']) }}
 		</div>
 @stop
 
@@ -29,7 +29,7 @@
       $(".backstretch").backstretch([
         //"backgrounds/wg_blurred_backgrounds_4.jpg",
         //"backgrounds/wg_blurred_backgrounds_1.jpg",
-        "backgrounds/wg_blurred_backgrounds_16.jpg",
+        "backgrounds/wg_blurred_backgrounds_11.jpg",
         //"backgrounds/wg_blurred_backgrounds_8.jpg",
         //"backgrounds/wg_blurred_backgrounds_5.jpg"
       ], {

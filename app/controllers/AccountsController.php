@@ -9,7 +9,7 @@ class AccountsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return Redirect::to('/404error');
 	}
 
 
@@ -48,7 +48,7 @@ class AccountsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return Redirect::to('/404error');
 	}
 
 
@@ -60,7 +60,7 @@ class AccountsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
@@ -72,7 +72,7 @@ class AccountsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        return Redirect::to('/404error');
 	}
 
 
