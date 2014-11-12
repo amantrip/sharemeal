@@ -19,7 +19,7 @@ class AccountsController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
+    {
         if (Auth::check()) return Redirect::to('/sessions');
         return View::make('accounts.create');
 	}
@@ -32,6 +32,13 @@ class AccountsController extends \BaseController {
 	 */
 	public function store()
 	{
+        $user = User::where('email', '=', Input::get('email'))->first();
+
+        if($user->verified == '0'){
+            Session::push('email', Input::get('email'));
+            return Redirect::to('/verify');
+        }
+
         if (Auth::attempt(Input::only('email', 'password'))){
             return Redirect::to('/sessions');
         }

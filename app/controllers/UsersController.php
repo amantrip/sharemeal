@@ -39,14 +39,54 @@ class UsersController extends \BaseController {
             return Redirect::to('/failed');
         }
 
+        $accesscode = Str::random(60);
         User::create([
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password')),
-            'gender' => Input::get('gender')
+            'gender' => Input::get('gender'),
+            'accesscode' => $accesscode,
+            'verified' => '0'
         ]);
 
-        return Redirect::to('/welcome');
+        $email_data = array(
+            'recipient' => Input::get('email'),
+            'subject' => 'Share-A-Meal: Verification Code'
+        );
+        $view_data = [
+            'accesscode' => $accesscode
+        ];
+
+        Mail::send('emails.verify', $view_data, function($message) use ($email_data) {
+            $message->to( $email_data['recipient'] )
+                ->subject( $email_data['subject'] );
+        });
+
+        Session::push('email' , Input::get('email'));
+        return Redirect::to('/verify');
 	}
+
+    public function verify(){
+        return View::make('users.verify');
+    }
+
+    public function verification(){
+        $email = Input::get('email');
+        $accesscode = Input::get('accesscode');
+
+        $user =  User::where('email', '=', $email)->first();
+        $user_accesscode = $user->accesscode;
+
+        if($user_accesscode == $accesscode){
+            $user->verified = 1;
+            $user->save();
+            return Redirect::to('/welcome');
+
+        }else{
+            return Redirect::back()->withInput();
+        }
+
+    }
+
 
 
 	/**

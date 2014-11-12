@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
+            $table->string('accesscode');
+            $table->tinyint('verified');
             $table->timestamps();
             $table->rememberToken();
 		});

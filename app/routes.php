@@ -19,6 +19,8 @@ Route::resource('accounts', 'AccountsController');
 
 
 Route::get('/register', 'UsersController@create');
+Route::get('/verify', 'UsersController@verify');
+Route::post('/verify', 'UsersController@verification');
 Route::resource('users', 'UsersController');
 
 
