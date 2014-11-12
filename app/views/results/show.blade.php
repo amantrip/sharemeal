@@ -39,13 +39,13 @@
   					@if (count($waiting) == 0)
                         <h1 class="text-center font-w-100">Sorry!</h1>
                       	<div class="row">
-                      	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2"> There is no one at the moment with similar cuisine perferences, please add yourself to waiting lines of a few restaurants in the other TAB!</p>
+                      	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2"> There is no one at the moment with similar cuisine preferences, please add yourself to waiting lines of a few restaurants in the other TAB!</p>
                       	</div>
                     @endif
                     @if (count($waiting) > 0)
-                        <h1 class="text-center font-w-100">Congraulations!</h1>
+                        <h1 class="text-center font-w-100">Congratulations!</h1>
                       	<div class="row">
-                      	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2">There are one or more matches to your cuisine perferences, you choose a match and we will email you the details!</p>
+                      	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2">There are one or more matches to your cuisine preferences, you choose a match and we will email you the details!</p>
                       	</div>
 
                     {{Form:: open(['action' => 'ResultsController@waiting'])}}
