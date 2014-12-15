@@ -21,15 +21,15 @@ return array(
 	'connections' => array(
 
 		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'shareameal',
-			'username'  => 'homestead',
-			'password'  =>  'secret',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-            'port'      => '33060'
+            'driver'    => 'mysql',
+            'host'      => getenv('DB_HOST'),#'localhost',
+            'database'  => 'shareameal',
+            'username'  =>  getenv('DB_USERNAME'),#'homestead',
+            'password'  =>  getenv('DB_PASSWORD'),#'secret',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'port'      => getenv('DB_HOST')#'33060'
 		),
 
 		'pgsql' => array(
