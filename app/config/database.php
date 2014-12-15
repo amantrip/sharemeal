@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => getenv('DB_HOST'),#'localhost',
-			'database'  => 'shareameal',
+            'database'  => getenv('DB_NAME'),#'shareameal',
 			'username'  =>  getenv('DB_USERNAME'),#'homestead',
 			'password'  =>  getenv('DB_PASSWORD'),#'secret',
 			'charset'   => 'utf8',
