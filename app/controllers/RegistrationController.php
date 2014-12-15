@@ -1,34 +1,25 @@
 <?php
 
-class UsersController extends \BaseController {
+class RegistrationController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
-	 */
-	public function index()
+	 *
+     *
+     * public function index()
 	{
 		//
-	}
+	}*/
 
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
 		return View::make('users.create');
 	}
 
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
 		/*$user =  new User;
@@ -69,6 +60,8 @@ class UsersController extends \BaseController {
         return View::make('users.verify');
     }
 
+
+
     public function verification(){
         $email = Input::get('email');
         $accesscode = Input::get('accesscode');
@@ -94,11 +87,11 @@ class UsersController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function show($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -106,11 +99,11 @@ class UsersController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function edit($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -118,11 +111,11 @@ class UsersController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function update($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -130,11 +123,11 @@ class UsersController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function destroy($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 }

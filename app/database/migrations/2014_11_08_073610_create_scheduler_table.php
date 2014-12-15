@@ -20,6 +20,7 @@ class CreateSchedulerTable extends Migration {
             $table->string('rname');
             $table->string('raddress');
             $table->string('rurl');
+            $table->enum('gender', ['male', 'female', 'either']);
             $table->timestamps();
             $table->rememberToken();
 

@@ -54,13 +54,14 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => getenv('DB_HOST'),
+			'host'      => 'localhost',
 			'database'  => 'shareameal',
-			'username'  => getenv('DB_USERNAME'),
-			'password'  => getenv('DB_PASSWORD'),
+			'username'  =>  'homestead',
+			'password'  =>  'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
+            'port'      => '33060'
 		),
 
 		'pgsql' => array(

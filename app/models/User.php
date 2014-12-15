@@ -40,8 +40,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return true;
         }
 
-        static:: $errors = $validation->messages();
-        return false;
+        #static:: $errors = $validation->messages();
+        #return false;
     }
 
 }

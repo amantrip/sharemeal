@@ -8,29 +8,34 @@
     <link rel="stylesheet" href="/css/sessions-override.css">
 @stop
 
+
 @section('sidebar')
-        <div class="sidebar bg-dark-gray text-white pushy pushy-left">
+   		<div class="sidebar bg-gray-dark text-white text-center pushy pushy-left">
 
-    		<hr class="no-margin"><br><br><br>
+   			<hr class="no-margin">
+   			<hr>
+   			<ul class="unstyled nav">
+   				<li class="active"><a href="" class="text-left">Dashboard</a></li>
+   				<li>
+   					<a href="/history" class="text-left">
+   						Match History
+   						<span class="badge bg-blue-light pull-right text-gray-dark brad-small">{{$count}}</span>
+   					</a>
+   				</li>
+   			</ul>
 
-    		<!--<ul class="unstyled nav">
-                <li>Simple 3 Step Process</li>
-                <li><a href="" class="text-left">1. Enter Zip Code</a></li>
-                <li><a href="" class="text-left">2. Select Cuisines</a></li>
-                <li><a href="" class="text-left">3. Choose Restaurants</a></li>
-                <li><a href="" class="text-left">Share-A-Meal!</a></li>
-            </ul>-->
-    	</div>
+   		</div>
+
 @stop
 
 @section('content')
     <h2 class="text-center p-b-30 m-t-0 page-header">Hungry? Let's Get Started Quickly!</h2>
     {{ Form:: open(['route' => 'sessions.store', 'class' => 'form-horizontal']) }}
+
         <div class="form-group">
             {{ Form:: label('zipcode', 'Your ZipCode', ['class' => 'col-sm-2 control-label']) }}
             <div class="col-sm-10 ">
                 <div class="m-b-10">
-
                     {{ Form:: input('number','zipcode', null, ['class' => 'input-large input-light brad', 'required']) }}
                     {{ $errors->first('zipcode') }}
                 </div>
@@ -81,6 +86,27 @@
         			<span class="m-l-10">American Cuisine</span>
         		</div>
         	</div>
+        </div>
+        <hr>
+        <div clas="form-group">
+            {{ Form:: label('gender', 'Your Gender Preference', ['class' => 'col-sm-2 control-label']) }}
+            <div class="col-sm-10 ">
+                <div class="m-b-10">
+                    <div class="m-b-10">
+                        {{Form:: radio("gender", "female", false,  ['class' => 'icheck', 'required'])}}
+                        <span class="m-l-10">Female only</span>
+                    </div>
+                    <div class="m-b-10">
+                        {{Form:: radio("gender", "male", false,  ['class' => 'icheck', 'required'])}}
+                        <span class="m-l-10">Male only</span>
+                    </div>
+
+                    <div class="m-b-10">
+                        {{Form:: radio("gender", "either", true,  ['class' => 'icheck', 'required'])}}
+                        <span class="m-l-10">Either</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">

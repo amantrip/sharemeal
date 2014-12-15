@@ -27,7 +27,7 @@
       	<nav class="navbar navbar-fixed-top not-collapse bg-g-ln-gray" role="navigation">
       		<div class="navbar-header">
     		    <a class="navbar-brand" href="#" class="hover-white-shade-bg">
-    		    	<img src="images/logo.png" class="logo">
+    		    	<img src="/images/logo.png" class="logo">
     		    </a>
     		  </div>
     	  	<div id="top-nav">

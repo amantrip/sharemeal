@@ -46,4 +46,6 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 |
 */
 
+require __DIR__.'/../c3.php';
+
 $app->run();

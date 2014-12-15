@@ -17,7 +17,7 @@
 				<!-- <img src="http://placehold.it/200x90"> -->
                 <!--<h2 class="text-white font-w-100">Share-a-Meal</h2>-->
 			</div>
-            {{ Form:: open(['action' => 'UsersController@verification']) }}
+            {{ Form:: open(['action' => 'RegistrationController@verification']) }}
                 <div class="form-group">
                     {{ Form:: text("accesscode", null,  ['class' => 'form-control', 'placeholder' => 'Access Code', 'required']) }}
                     {{ Form::hidden('email', Session::get('email')[0]) }}

@@ -48,7 +48,7 @@
                       	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2">There are one or more matches to your cuisine preferences, you choose a match and we will email you the details!</p>
                       	</div>
 
-                    {{Form:: open(['action' => 'ResultsController@waiting'])}}
+                    {{Form:: open(['action' => 'SchedulerController@waiting'])}}
                     @foreach($waiting as $restaurant)
                         <div class="row">
                             <div class="col-sm-5 text-center">
@@ -72,11 +72,15 @@
                                  </div>
                             </div>
                             <div class="col-sm-7">
+                                <h4 class="">Match Details</h4>
+                                <p class="text-gray-alt">{{User::find($restaurant->uid)->gender}} user</p>
+                                <hr>
                                 <h4>Restaurant Address</h4>
                                 <p class="text-gray-alt">{{ $restaurant->raddress }}</p>
                                 <hr>
                                 <h4 class="">Restaurant URL</h4>
                                 <p class="text-gray-alt">{{ $restaurant->rurl }}</p>
+
                             </div>
                         </div>
                     @endforeach
@@ -107,7 +111,7 @@
                       	    <p class="m-b-30 p-b-30 text-gray-alt text-uppercase text-center col-lg-8 col-lg-offset-2"> There is no one at the moment with similar cuisine perferences, please add yourself to waiting lines of a few restaurants!</p>
                       	</div>
                     @endif
-                    {{Form::open(['action' => 'ResultsController@rest', 'class' => 'form-horizontal'])}}
+                    {{Form::open(['action' => 'SchedulerController@rest', 'class' => 'form-horizontal'])}}
                         {{ Form::hidden('count', count($rest_id)) }}
                         <div class="form-group">
                             {{ Form:: label('restaurants', 'Restaurants you\'d like to eat at? (Choose at least one)', ['class' => 'col-sm-2 control-label']) }}

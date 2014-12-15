@@ -1,6 +1,6 @@
 <?php
 
-class ResultsController extends \BaseController {
+class SchedulerController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,15 +14,16 @@ class ResultsController extends \BaseController {
         }
         $user = Auth::user();
         if(Scheduler::where('uid', '=', $user->id)->count() > 0){
-            Redirect::to('/inline');
+            return Redirect::to('/inline');
         }
-
-
 
         $zipcode = Session::get('zipcode');
-        if(!isset($zipcode)){
+        $gender = Session:: get('gender');
+
+        if(!isset($zipcode) || !isset($gender)){
             return Redirect::route('sessions.index');
         }
+
         $query = "search?location=".$zipcode[0]."&term=";
 
         $cuisines = Session::get('cuisines');
@@ -34,7 +35,6 @@ class ResultsController extends \BaseController {
 
         //return $query;
         $results =  Shareameal\Yelp\Yelp:: search($query);
-
 
 
         //Get relevant information and send to view
@@ -56,7 +56,21 @@ class ResultsController extends \BaseController {
                 $sch = Scheduler::where('rid', '=', $businesses_id[$j])->firstorFail();
                 //$waiting[] = $sch;
 
-                array_push($waiting, $sch);
+                $scheduler_user = User::find($sch->uid);
+
+
+                if($gender[0] == "either" || $scheduler_user->gender == $gender[0]) { //Gender Test Passed on Current User
+
+                    if($sch->gender == "either" || $sch->gender == $user->gender){// Gender Test Passed on user in Scheduler
+
+                        #return History::where('uid', '=' ,$user->id)->where('matched_id', '=',$scheduler_user->id)->where('ban', '=', 'yes')->count();
+                        if(History::where('uid', '=' ,$user->id)->where('matched_id', '=',$scheduler_user->id)->where('ban', '=', 'yes')->count() == 0
+                            && History::where('uid', '=' ,$scheduler_user->id)->where('matched_id', '=',$user->id)->where('ban', '=', 'yes')->count() == 0){ //Not on each others ban list
+                                array_push($waiting, $sch);// Then add this restaurant to the waiting restaurants
+                            }
+                    }
+                }
+
                 // Remove this restaurant from the list
                 unset($businesses_id[$j]);
                 unset($businesses_name[$j]);
@@ -67,9 +81,12 @@ class ResultsController extends \BaseController {
                 $businesses_locations = array_values($businesses_locations);
                 $businesses_url = array_values($businesses_url);
                 $j--;
+
+
             }
 
         }
+
 
         return View::make('results.show', ['waiting' => $waiting, 'rest_id' => $businesses_id, 'rest_name' => $businesses_name, 'rest_locations' => $businesses_locations, 'rest_url' => $businesses_url]);
 
@@ -101,6 +118,20 @@ class ResultsController extends \BaseController {
     private static function sendMail($curr_uid, $matched_uid, $restaurant_id){
         $user1 = User::find($curr_uid);
         $user2 = User::find($matched_uid);
+
+        //Add to User1's history
+        History::create([
+            'uid' => $curr_uid,
+            'matched_id' => $matched_uid,
+            'restaurant_id' => $restaurant_id
+        ]);
+
+        //Add to User2's history
+        History::create([
+            'uid' => $matched_uid,
+            'matched_id' => $curr_uid,
+            'restaurant_id' => $restaurant_id
+        ]);
 
         $email_data1 = array(
             'recipient' => $user1->email,
@@ -139,7 +170,7 @@ class ResultsController extends \BaseController {
     public function rest(){
         //To all the restaurants that were checked, add auth::user to DB
 
-       $user = Auth::user();
+        $user = Auth::user();
 
         $selected = 0;
 
@@ -168,22 +199,22 @@ class ResultsController extends \BaseController {
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
-	 */
+	 *
 	public function create()
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
-	 */
+	 *
 	public function store()
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -191,11 +222,11 @@ class ResultsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function show($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -203,11 +234,11 @@ class ResultsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function edit($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -215,11 +246,11 @@ class ResultsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function update($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -227,11 +258,11 @@ class ResultsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function destroy($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 }

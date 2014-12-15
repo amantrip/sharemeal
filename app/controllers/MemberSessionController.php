@@ -1,12 +1,19 @@
 <?php
 
-class SessionsController extends \BaseController {
+class MemberSessionController extends \BaseController {
+    private $_CUISINES_LIST = [
+        'french',
+        'italian',
+        'chinese',
+        'indian',
+        'mexican',
+        'lebanese',
+        'japanese',
+        'spanish',
+        'greek',
+        'american'
+    ];
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
 		if(!Auth::check()){
@@ -15,11 +22,13 @@ class SessionsController extends \BaseController {
 
         $user = Auth::user();
         if(Scheduler::where('uid', '=', $user->id)->count() > 0){
-            //return "Redirecting";
             return Redirect::to('/inline');
         }
+
+        $count_matches = History:: where('uid','=', $user->id)->count();
+
         //return Scheduler::where('uid', '=', $user->id)->count();
-        return View::make('sessions.index');
+        return View::make('sessions.index', ['count' => $count_matches]);
 	}
 
 
@@ -27,11 +36,11 @@ class SessionsController extends \BaseController {
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
-	 */
+	 *
 	public function create()
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -39,23 +48,22 @@ class SessionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-
-		$cuisines = [];
-
+    public function store()
+    {
+        $cuisines = [];
 
         if(Input::get('french') == 'french'){
+
             Session::push('cuisines', 'french');
             $cuisines[] = Input::get('french');
         }
-
         if(Input::get('italian') == 'italian'){
+
             Session::push('cuisines', 'italian');
             $cuisines[] = Input::get('italian');
         }
-
         if(Input::get('chinese') == 'chinese'){
+
             Session::push('cuisines', 'chinese');
             $cuisines[] = Input::get('chinese');
         }
@@ -64,45 +72,50 @@ class SessionsController extends \BaseController {
             $cuisines[] = Input::get('indian');
         }
         if(Input::get('mexican') == 'mexican'){
+
             Session::push('cuisines', 'mexican');
             $cuisines[] = Input::get('mexican');
         }
         if(Input::get('lebanese') == 'lebanese'){
+
             Session::push('cuisines', 'lebanese');
             $cuisines[] = Input::get('lebanese');
         }
         if(Input::get('japanese') == 'japanese'){
+
             Session::push('cuisines', 'japanese');
             $cuisines[] = Input::get('japanese');
         }
         if(Input::get('spanish') == 'spanish'){
+
             Session::push('cuisines', 'spanish');
             $cuisines[] = Input::get('spanish');
         }
         if(Input::get('greek') == 'greek'){
+
             Session::push('cuisines', 'greek');
             $cuisines[] = Input::get('greek');
         }
         if(Input::get('american') == 'american'){
+
             Session::push('cuisines', 'american');
             $cuisines[] = Input::get('american');
         }
 
         $validation = Validator:: make(Input::all(),['zipcode' => 'max:5']);
-
         if($validation->fails()){
+
             return Redirect:: back()->withInput()->withErrors($validation->messages());
         }
-
-
         if(count($cuisines) < 1){
+
             return Redirect:: back()->withInput();
         }
-
         Session::push('zipcode', Input::get('zipcode'));
+        Session::push('gender', Input::get('gender'));
 
         return Redirect::route('results.index'); #Session::get('zipcode');#
-	}
+    }
 
 
 	/**
@@ -110,11 +123,11 @@ class SessionsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function show($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -122,11 +135,11 @@ class SessionsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function edit($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -134,11 +147,11 @@ class SessionsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function update($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 	/**
@@ -146,11 +159,11 @@ class SessionsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
-	 */
+	 *
 	public function destroy($id)
 	{
         return Redirect::to('/404error');
-	}
+	}*/
 
 
 }

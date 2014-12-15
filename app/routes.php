@@ -13,22 +13,22 @@ use Shareameal\Yelp;
 |
 */
 
-Route::get('/', 'AccountsController@create');
-Route::get('logout', 'AccountsController@destroy');
-Route::resource('accounts', 'AccountsController');
+Route::get('/', 'AuthenticationController@create');
+Route::get('logout', 'AuthenticationController@destroy');
+Route::resource('accounts', 'AuthenticationController');
 
 
-Route::get('/register', 'UsersController@create');
-Route::get('/verify', 'UsersController@verify');
-Route::post('/verify', 'UsersController@verification');
-Route::resource('users', 'UsersController');
+Route::get('/register', 'RegistrationController@create');
+Route::get('/verify', 'RegistrationController@verify');
+Route::post('/verify', 'RegistrationController@verification');
+Route::resource('users', 'RegistrationController');
 
 
-Route::resource('sessions', 'SessionsController');
+Route::resource('sessions', 'MemberSessionController');
 
-Route::resource('results', 'ResultsController');
-Route::post('/results/waiting', 'ResultsController@waiting');
-Route::post('/results/rest', 'ResultsController@rest');
+Route::resource('results', 'SchedulerController');
+Route::post('/results/waiting', 'SchedulerController@waiting');
+Route::post('/results/rest', 'SchedulerController@rest');
 
 
 Route::get('/welcome', 'HomeController@welcome');
@@ -38,6 +38,9 @@ Route::get('/thankyou', 'HomeController@thankyou');
 Route::get('/404error', 'HomeController@error');
 Route::get('/matched', 'HomeController@matched');
 
+Route::get('/history', 'HistoryController@renderHistoryView');
+Route::get('/history/edit/{id}', 'HistoryController@renderEditHistoryView');
+Route::post('/history/edit', 'HistoryController@editHistory');
 
 App::missing(function($exception)
 {

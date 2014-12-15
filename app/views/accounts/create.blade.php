@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/index-override.css">
 @stop
 
+
 @section('content')
 		<div class="block-absolute-center login-form">
 
@@ -28,6 +29,7 @@
             {{ link_to('/register', 'Don\'t have an account?', ['class' => 'text-white hover-opacity-change center hover-white-opacity-text m-t-10 d-block']) }}
 		</div>
 @stop
+
 
 @section('footer')
     <script>

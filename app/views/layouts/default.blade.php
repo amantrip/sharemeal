@@ -25,6 +25,9 @@
   </head>
 
   <body class="backstretch">
+
+
+
     @yield('content')
 
 
