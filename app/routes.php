@@ -13,7 +13,10 @@ use Shareameal\Yelp;
 |
 */
 
-Route::get('/', 'AuthenticationController@create');
+#Route::get('/', 'AuthenticationController@create');
+Route::get('/', function(){
+   return Redirect::to('/locked');
+});
 Route::get('logout', 'AuthenticationController@destroy');
 Route::resource('accounts', 'AuthenticationController');
 
@@ -37,6 +40,7 @@ Route::get('/inline', 'HomeController@inline');
 Route::get('/thankyou', 'HomeController@thankyou');
 Route::get('/404error', 'HomeController@error');
 Route::get('/matched', 'HomeController@matched');
+Route::get('/locked', 'HomeController@locked');
 
 Route::get('/history', 'HistoryController@renderHistoryView');
 Route::get('/history/edit/{id}', 'HistoryController@renderEditHistoryView');

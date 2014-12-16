@@ -46,4 +46,8 @@ class HomeController extends BaseController {
         }
         return View::make('matched');
     }
+
+    public function locked(){
+        return View::make('locked');
+    }
 }

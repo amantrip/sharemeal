@@ -23,7 +23,7 @@ class Scheduler extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $hidden = array('remember_token');
 
-    protected  $fillable =['uid', 'rid', 'rname', 'raddress', 'rurl'];
+    protected  $fillable =['uid', 'rid', 'rname', 'raddress', 'rurl', 'gender'];
 
 
 }

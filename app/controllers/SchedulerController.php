@@ -174,6 +174,10 @@ class SchedulerController extends \BaseController {
 
         $selected = 0;
 
+        $gender = Session::get('gender');
+
+
+
        for($i = 0; $i < Input::get('count'); $i++){
 
             if(Input::get($i) =='yes'){
@@ -183,7 +187,8 @@ class SchedulerController extends \BaseController {
                     'rid' => Input::get($i.'-id'),
                     'rname' => Input::get($i.'-name'),
                     'raddress' => Input::get($i.'-locations'),
-                    'rurl' => Input::get($i.'-url')
+                    'rurl' => Input::get($i.'-url'),
+                    'gender' => $gender[0]
                 ]);
             }
        }
