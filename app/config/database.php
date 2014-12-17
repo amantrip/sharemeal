@@ -61,7 +61,7 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-            'port'      => getenv('DB_HOST')#'33060'
+            #'port'      => getenv('DB_HOST')#'33060'
 		),
 
 		'pgsql' => array(
