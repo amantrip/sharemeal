@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
             $table->string('accesscode');
-            $table->tinyint('verified');
+            $table->integer('verified');
             $table->timestamps();
             $table->rememberToken();
 		});
