@@ -36,6 +36,10 @@ class SchedulerController extends \BaseController {
         //return $query;
         $results =  Shareameal\Yelp\Yelp:: search($query);
 
+        if(!isset($results)){
+            return Redirect::to('/404error');
+        }
+
 
         //Get relevant information and send to view
         $businesses_id = array_fetch($results['businesses'],'id');

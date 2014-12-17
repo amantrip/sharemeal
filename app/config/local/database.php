@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
             'driver'    => 'mysql',
             'host'      => getenv('DB_HOST'),#'localhost',
-            'database'  => getenv('DB_NAME'),#'shareameal',
+            'database'  => 'shareameal',#'shareameal',
             'username'  =>  getenv('DB_USERNAME'),#'homestead',
             'password'  =>  getenv('DB_PASSWORD'),#'secret',
             'charset'   => 'utf8',

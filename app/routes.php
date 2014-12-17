@@ -13,10 +13,10 @@ use Shareameal\Yelp;
 |
 */
 
-#Route::get('/', 'AuthenticationController@create');
-Route::get('/', function(){
-   return Redirect::to('/locked');
-});
+Route::get('/', 'AuthenticationController@create');
+#Route::get('/', function(){
+#   return Redirect::to('/locked');
+#});
 Route::get('logout', 'AuthenticationController@destroy');
 Route::resource('accounts', 'AuthenticationController');
 
